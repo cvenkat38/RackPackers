@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>RackPackers - We bring mountains under our feet</title>
+    <meta name="description" content="We bring mountains under our feet">
+    <meta name="author" content="RackPackers">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+    <!--if lt IE 9script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    -->
+</head>
+
+<body ng-controller="mainController">
+    <header>
+        <nav class="navbar navbar-default navTransparent" ng-class="{'navColor':scrollY>=90 || location!='/','notscrolled':location=='/' && scrollY<50 , 'navbar-fixed-top':location=='/' }">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Rack Packers</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a ng-class="{'active':location=='/'}" href="#/">Home</a></li>
+                        <!-- <li><a ng-class="{'active':location=='/gallery'}" href="#/gallery">Gallery</a></li> -->
+                        <!-- <li><a ng-class="{'active':location=='/blog'}" href="#/blog">Blog</a></li> -->
+                        <li><a ng-class="{'active':location=='/member/home'}" href="javascript:;" ng-click="navigateMember()">Members Area</a></li>
+                        <!-- <li><a ng-class="{'active':location=='/contact'}" href="#/contact">Contact Us</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="rp_landing" ng-hide="location!='/'" ng-class="{'rp_landing':location=='/','rp_others':location!='/'}">
+            <div class="image" ng-init="data.carousel=[1,2,3,4,5,6,7]">
+                <img ng-repeat="no in data.carousel" ng-src="images/trek/a{{no}}.jpg" alt="Trek {{no}}">
+            </div>
+            <div class="image_content">
+                <img src="images/rackpackers-logo/RackPackersLogo.png" alt="Rack Packers" width="320" height="320">
+                <h4 ng-if="location=='/'">- Life begins at the end of your comfort zone</h4>
+                <h4 ng-if="location!='/'">- We bring mountains under our feet</h4>
+            </div>
+            <div class="marquee_content" ng-if="location=='/'">
+                <marquee width="80%" onmouseover="stop()" onmouseout="start()">
+                    Trek to KudreMukh on 3rd week of August <a href="#">Click here</a> to register for the event.
+                </marquee>
+            </div>
+        </div>
+    </header>
+    <div  ng-class="{'container-fluid':location=='/member/home','container':location!='/member/home'}" id="page_content">
+        <div ng-view></div>
+    </div>
+    <footer>
+        <div ng-include="'pages/footer.html'">
+        </div>
+    </footer>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-cookies.min.js"></script>
+    <script src="lib/angular/angular-resource.min.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/underscore/underscore.min.js"></script>
+    <script src="lib/angular-ui/ui-bootstrap-tpls-2.1.2.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script src="lib/jquery.nicescroll/jquery.nicescroll.min.js" charset="utf-8"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories.js" charset="utf-8"></script>
+    <script src="../js/landingCtrl.js" charset="utf-8"></script>
+    <script src="../js/eventListCtrl.js" charset="utf-8"></script>
+    <script src="../js/memberCtrl.js" charset="utf-8"></script>
+    <script src="../js/registerCtrl.js" charset="utf-8"></script>
+    <script src="../js/trekDetailsCtrl.js" charset="utf-8"></script>
+</body>
+
+</html>
