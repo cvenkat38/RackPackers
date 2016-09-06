@@ -9,38 +9,38 @@
  app.config(function($routeProvider) {
      $routeProvider
          .when('/', {
-             templateUrl: 'html/landing.html',
+             templateUrl: 'views/landing.html',
              controller: 'landingCtrl'
          })
          .when('/gallery', {
-             templateUrl: 'html/gallery.html',
+             templateUrl: 'views/gallery.html',
              controller: 'galleryCtrl'
          })
          .when('/blog', {
-             templateUrl: 'html/blog.html',
+             templateUrl: 'views/blog.html',
              controller: 'blogCtrl'
          })
          .when('/view/blog/:blogId', {
-             templateUrl: 'html/viewBlog.html',
+             templateUrl: 'views/viewBlog.html',
              controller: 'viewBlogCtrl'
          })
          .when('/contact', {
-             templateUrl: 'html/contact.html',
+             templateUrl: 'views/contact.html',
              controller: 'contactCtrl'
          })
          .when('/trek/details/:trekID', {
-             templateUrl: 'html/trekDetails.html',
+             templateUrl: 'views/trekDetails.html',
              controller: 'trekDetailsCtrl'
          }).when('/trek/list', {
-             templateUrl: 'html/eventList.html',
+             templateUrl: 'views/eventList.html',
              controller: 'eventListCtrl'
          })
          .when('/member/register', {
-             templateUrl: 'html/register.html',
+             templateUrl: 'views/register.html',
              controller: 'registerCtrl'
          })
          .when('/member/home', {
-             templateUrl: 'html/memberHome.html',
+             templateUrl: 'views/memberHome.html',
              controller: 'memberCtrl'
          });
  });
